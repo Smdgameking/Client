@@ -1,0 +1,245 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxm2yxqeev805"]
+
+[ext_resource type="Script" uid="uid://c7k4kpq7t1pbr" path="res://scripts/login.gd" id="1_pymad"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pymad"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_nw41r"]
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_nw41r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/popup:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_pymad"]
+resource_name = "popup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/popup:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0emk2"]
+resource_name = "popup_close"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/popup:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0emk2"]
+_data = {
+&"RESET": SubResource("Animation_nw41r"),
+&"popup": SubResource("Animation_pymad"),
+&"popup_close": SubResource("Animation_0emk2")
+}
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pymad")
+
+[node name="background_texture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="holder" type="HBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -187.5
+offset_top = -50.0
+offset_right = 187.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="email" type="Button" parent="background/holder"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Email"
+
+[node name="Panel" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="Panel5" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="Panel6" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="google" type="Button" parent="background/holder"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Google"
+
+[node name="Panel2" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="background/holder"]
+layout_mode = 2
+
+[node name="facebook" type="Button" parent="background/holder"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Facebook"
+
+[node name="popup" type="Panel" parent="background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -108.5
+offset_right = 224.0
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+
+[node name="text" type="Label" parent="background/popup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_right = 142.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Coming soon..."
+label_settings = SubResource("LabelSettings_pymad")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="note" type="Label" parent="background/popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This login system is still under construction"
+label_settings = SubResource("LabelSettings_nw41r")
+
+[node name="Confirm" type="Button" parent="background/popup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -50.0
+offset_right = 62.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+
+[node name="form" type="VBoxContainer" parent="background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -92.0
+offset_right = 145.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="username" type="LineEdit" parent="background/form"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Username"
+
+[node name="password" type="LineEdit" parent="background/form"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Password"
+secret = true
+secret_character = "*"
+
+[node name="login" type="Button" parent="background/form"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Login"
+
+[node name="idha" type="Button" parent="background/form"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "I don't have an account"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0emk2")
+}
+
+[connection signal="pressed" from="background/holder/email" to="." method="_on_email_pressed"]
+[connection signal="pressed" from="background/holder/google" to="." method="_on_google_pressed"]
+[connection signal="pressed" from="background/holder/facebook" to="." method="_on_facebook_pressed"]
+[connection signal="pressed" from="background/popup/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="background/form/login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="background/form/idha" to="." method="_on_idha_pressed"]
